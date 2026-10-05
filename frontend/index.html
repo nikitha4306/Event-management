@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Event Management System</h1>
+    </header>
+
+    <section class="stats-container">
+      <div class="stat-box">
+        <h3 id="stat-total-events">0</h3>
+        <p>Total Events</p>
+      </div>
+      <div class="stat-box">
+        <h3 id="stat-total-regs">0</h3>
+        <p>Registrations</p>
+      </div>
+      <div class="stat-box">
+        <h3 id="stat-total-seats">0</h3>
+        <p>Available Seats</p>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <section class="form-section">
+        <h2>Add New Event</h2>
+        <form id="event-form">
+          <div class="form-group">
+            <label>Event Name</label>
+            <input type="text" id="event_name" required>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="event_date" required>
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" id="location" required>
+          </div>
+          <div class="form-group">
+            <label>Total Seats</label>
+            <input type="number" id="total_seats" min="1" required>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description" rows="2"></textarea>
+          </div>
+          <button type="submit">Create Event</button>
+        </form>
+      </section>
+
+      <section class="events-section">
+        <h2>Available Events</h2>
+        <div id="events-list" class="events-list"></div>
+      </section>
+    </div>
+
+    <section class="registrations-section">
+      <h2>Recent Registrations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Event</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="registrations-tbody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 id="modal-event-title">Register for Event</h2>
+      <form id="register-form">
+        <input type="hidden" id="reg-event-id">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="reg-name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="reg-email" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="reg-phone" required>
+        </div>
+        <button type="submit">Confirm Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
